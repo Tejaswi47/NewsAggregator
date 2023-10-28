@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='base.css')}}">
+</head>
+<body>
+
+        <div class="icon">
+            <h2 class="logo">AMT<h5>(read, learn and spread)</h5></h2>
+        </div>
+    <nav>
+        <ul>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>
+            <a href="#">Category ▾</a>
+           <div>
+               <ul class="dropdown" id="store-answer">
+                   <li><a href="{{url_for('business')}}">Business</a></li>
+                   <li><a href="{{url_for('entertainment')}}">Entertainment</a></li>
+                   <li><a href="{{url_for('health')}}">Health</a></li>
+                   <li><a href="{{url_for('sports')}}">Sports</a></li>
+                   <li><a href="{{url_for('general')}}">General</a></li>
+                   <li><a href="{{url_for('science')}}">Science</a></li>
+                   <li><a href="{{url_for('technology')}}">Technology</a></li>
+               </ul>
+           </div>
+        </li>
+        <li><a href="{{url_for('about_us')}}">About Me</a></li>
+        <li><a href="{{url_for('contact_us')}}">Contact Me</a></li>
+        <li><div class="newsletter"><a href="{{url_for('send_newsletter')}}">Newsletter</a></div>
+        </li>
+        </ul>
+        <form action="/results" method="GET">
+            <div class="container">
+                <input type="text"  id="searchInput" name="query" list="input" placeholder="Search" >
+                <button type="submit"></button>
+                <div class="btn">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+            </form>
+        <div class="slogan"> 
+            <p>
+                <strong><h3>Search here for more interesting news!</h3></strong>
+                "Stay Informed, Stay Empowered: Embrace the Power of Learning News,
+                Knowledge is Your Superpower: Fuel Your Mind with News Learning!"
+            </p>
+        </div>
+    </nav>
+
+   <footer>
+    <nav>
+      <ul class="credentials">
+        {% if not logged_in %}
+        <li><a href="{{url_for('login')}}">Login</a></li>
+        <li><a href="{{url_for('signup')}}">Signup</a></li>
+        {% endif %}
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+      </ul>
+    </nav>
+   </footer>
+</body>
+</html>
+ 

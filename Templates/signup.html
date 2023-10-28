@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type='text/css' href="{{url_for('static',filename='registration.css')}}">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     {% with messages = get_flashed_messages() %}
+     {% if messages %}
+       {% for message in messages %}
+         <center><b>{{ message }}</b></center>
+       {% endfor %}
+     {% endif %}
+   {% endwith %}
+  </head>
+   <body>
+   <div class="container">
+    <div class="title">Registration</div>
+    <form method="post">
+     <div class="content">
+         <div class="user-details">
+          <div class="input-box">
+            <span class="details">Fullname</span>
+            <input type="text"  id="Fullname" name="Fullname" placeholder="Enter your name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" id="Username" name="Username" placeholder="Enter your username" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" id="Email" name="Email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phonenumber</span>
+            <input type="text" id="Phonenumber" name="Phonenumber" placeholder="Enter your number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" id="confirm password" name="confirm password" placeholder="Confirm your password" required>  
+          </div>
+         </div>
+         <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" value='Male'>
+          <input type="radio" name="gender" id="dot-2" value="Female">
+          <input type="radio" name="gender" id="dot-3" value="Prefer not to say">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+            <div class="links">
+                <p><a href="{{url_for('login')}}">Already have an account?</a></p>
+            </div>
+       
+          </div>
+         </div>
+         <div class="button">
+          <input type="submit" value="Register">
+         </div>
+        </form> 
+     </div>
+    </div>
+</body>
+</html>

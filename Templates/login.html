@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X_UA_Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='signin.css')}}">
+
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+<div class="wrapper">
+    <div class="title">
+        login
+    </div>
+    <form method="POST">
+        <div class="field">
+          <input type="text" id="Email" name="Email" required>
+            <label>Email</label>
+        </div>
+        <div class="field">
+            <input type="password" id="Password" name="Password" required>
+            <label>Password</label>
+        </div>
+        <div class="content">
+          <div class="checkbox">
+             <input type="checkbox" id="remember-me" name="Remember">
+             <label for="remember-me">Remember me</label>
+          </div>
+        </div>
+        <div class="field">
+           <input type="submit" value="Login">
+        </div>
+        <div class="signup-link">
+           Not a member? <a href="{{url_for('signup')}}">Signup now</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
